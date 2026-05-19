@@ -13,18 +13,6 @@ describe('Elysia Server API', () => {
       status: 'Running',
     });
   });
-
-  it('should gracefully return items or error depending on DB connection state', async () => {
-    const response = await app.handle(new Request('http://localhost/items'));
-    expect(response.status).toBe(200);
-    
-    const data = await response.json();
-    if (Array.isArray(data)) {
-      expect(Array.isArray(data)).toBe(true);
-    } else {
-      expect(data).toHaveProperty('error');
-    }
-  });
 });
 
 describe('Elysia User API', () => {
