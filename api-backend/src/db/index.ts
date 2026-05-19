@@ -10,4 +10,4 @@ const pool = mysql.createPool({
   database: process.env.DATABASE_NAME || 'vibe_coding',
 });
 
-export const db = drizzle(pool, { schema });
+export const db = drizzle(pool, { schema, mode: 'default' });
